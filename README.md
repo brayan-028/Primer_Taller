@@ -23,4 +23,4 @@ Paso 1: [15, 5, ...]
 
 Primero se abre la terminal de Visual Studio Code. Luego se verifica que se este navegando en la carpeta donde esta el archivo guardado.
 despues se ingresan el comando: gcc nombredelarchivo.c
-por ultimo se ingresa el comando: ./a.exe
+por ultimo se ingresa el comando: ./a.exe# Primer  Taller_
