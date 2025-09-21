@@ -7,6 +7,8 @@ typedef struct {
 }estud;
 
 int nota_maxima(estud lista[], int n, int *codigo_max);
+float promedio_curso(estud lista[], int n);
+
 
 int main() {
     
@@ -38,10 +40,13 @@ int main() {
                 printf("La nota maxima es %d y el codigo del estudiante es: %d\n", max_nota, codigo_m);
                 break;
             }
-            case 2: 
+            case 2: {
+                float promedio = promedio_curso(list_estud, list_estudiantes);
+                printf("El promedio del curso es: %.2f\n", promedio);
                 
                 break;
-
+            }
+                
             case 3: 
                 
                 break;
@@ -77,3 +82,27 @@ int nota_maxima(estud lista[], int n, int *codigo_max) {
 
 
 }
+
+
+float suma_notas(estud lista[], int n){
+    if (n == 0){
+        return 0;
+        } else {
+            return lista[n - 1].nota + suma_notas(lista, n - 1);
+        }
+
+   }
+
+
+   float promedio_curso(estud lista[], int n){
+    int suma = suma_notas(lista, n);
+    return (float) suma / n;
+
+   }
+
+
+
+
+
+
+
