@@ -8,6 +8,7 @@ typedef struct {
 
 int nota_maxima(estud lista[], int n, int *codigo_max);
 float promedio_curso(estud lista[], int n);
+void ordenar_lista(estud lista[], int n, int posicion_actual);
 
 
 int main() {
@@ -40,16 +41,25 @@ int main() {
                 printf("La nota maxima es %d y el codigo del estudiante es: %d\n", max_nota, codigo_m);
                 break;
             }
+
+
             case 2: {
                 float promedio = promedio_curso(list_estud, list_estudiantes);
                 printf("El promedio del curso es: %.2f\n", promedio);
                 
                 break;
             }
+
                 
-            case 3: 
-                
-                break;
+            case 3: {
+                ordenar_lista(list_estud, list_estudiantes, 0);
+                printf("Lista ordenada por codigos:\n");
+                for (int i = 0; i < list_estudiantes; i++){
+                    printf ("Codigo: %d, Nota: %d\n", list_estud[i].codi, list_estud[i].nota);
+                }
+                break;            
+            }  
+                                        
             
             case 4:
                 printf("Programa finalizado.\n");
@@ -61,6 +71,9 @@ int main() {
 
     return 0;
 }
+
+
+
 
 
 int nota_maxima(estud lista[], int n, int *codigo_max) {
@@ -84,6 +97,10 @@ int nota_maxima(estud lista[], int n, int *codigo_max) {
 }
 
 
+
+
+
+
 float suma_notas(estud lista[], int n){
     if (n == 0){
         return 0;
@@ -101,6 +118,30 @@ float suma_notas(estud lista[], int n){
    }
 
 
+
+
+
+void ordenar_lista(estud lista[], int n, int posicion_actual){
+    if (posicion_actual = n - 1){
+        return;
+    }
+
+int codigo_menor = posicion_actual;
+for (int i = posicion_actual + 1; i < n; i++){
+    if (lista[i].codi < lista[codigo_menor].codi){
+        codigo_menor = i;
+    }
+  }
+
+  if (codigo_menor != posicion_actual){
+    estud posicion_temp = lista[posicion_actual];
+    lista[posicion_actual] = lista[codigo_menor];
+    lista[codigo_menor] = posicion_temp;
+  }
+
+  ordenar_lista(lista, n, posicion_actual + 1);
+
+}
 
 
 
